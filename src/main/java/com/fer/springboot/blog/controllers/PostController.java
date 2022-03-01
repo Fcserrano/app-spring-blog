@@ -23,7 +23,6 @@ public class PostController {
 	
 	@GetMapping("/posts")
 	public String getPosts(Model model, HttpServletRequest req) {
-		model.addAttribute("dispositivo", req.getHeader("User-Agent"));
 		model.addAttribute("titulo", "Spring Blog");
 		model.addAttribute("posts", service.findAll());
 		return "posts";
@@ -61,9 +60,4 @@ public class PostController {
 		return "redirect:/posts";
 	}
 	
-	@GetMapping("/idError")
-	public String idError(Model model) {
-		model.addAttribute("titulo", "Id inexistente");
-		return "idError";
-	}
 }
